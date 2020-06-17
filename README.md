@@ -7,6 +7,13 @@ programming language : python
 
 Code to simulate Tomasulo’s - computer architecture hardware - algorithm for dynamic scheduling of instructions that allows out-of-order execution and enables more efficient use of multiple execution units.
 
+  
+set cycle:
+
+    ADD 2 cycle
+    MUL 10 cycle
+    DIV 20 cycle
+
 
 Input:
 
