@@ -46,46 +46,47 @@ Issue table: 根據input file create issue list
 
 
 output :
-------------------------------Cycle 1------------------------------
------Register-----
-F1 1
-F2 1
-F3 2
-F4 None
-F5 None
------RAT-----
-F1 None
-F2 None
-F3 RS1
-F4 None
-F5 None
--------RS-------
-RS1 + 1 2
-RS2 None None None
-RS3 None None None
-(ADD)Buffer=Empty
-RS4 None None None
-RS5 None None None
-(MUL)Buffer=Empty
 
-------------------------------Cycle 2------------------------------
------Register-----
-F1 1
-F2 1
-F3 2
-F4 None
-F5 None
------RAT-----
-F1 None
-F2 None
-F3 RS1
-F4 RS4
-F5 None
--------RS-------
-RS1 + 1 2
-RS2 None None None
-RS3 None None None
-(ADD)Buffer RS1=1+2
-RS4 / 1 RS1
-RS5 None None None
-(MUL)Buffer=Empty
+    ------------------------------Cycle 1------------------------------
+    -----Register-----
+    F1 1
+    F2 1
+    F3 2
+    F4 None
+    F5 None
+    -----RAT-----
+    F1 None
+    F2 None
+    F3 RS1
+    F4 None
+    F5 None
+    -------RS-------
+    RS1 + 1 2
+    RS2 None None None
+    RS3 None None None
+    (ADD)Buffer=Empty
+    RS4 None None None
+    RS5 None None None
+    (MUL)Buffer=Empty
+
+    ------------------------------Cycle 2------------------------------
+    -----Register-----
+    F1 1
+    F2 1
+    F3 2
+    F4 None
+    F5 None
+    -----RAT-----
+    F1 None
+    F2 None
+    F3 RS1
+    F4 RS4
+    F5 None
+    -------RS-------
+    RS1 + 1 2
+    RS2 None None None
+    RS3 None None None
+    (ADD)Buffer RS1=1+2
+    RS4 / 1 RS1
+    RS5 None None None
+    (MUL)Buffer=Empty
