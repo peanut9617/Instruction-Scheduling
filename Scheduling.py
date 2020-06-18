@@ -1,4 +1,4 @@
-def OPtransformer(op):
+def OPtransformer(op):      #將英文轉換成對應的運算符號
     if op=='ADD':
         op='+'
         return op
@@ -11,27 +11,27 @@ def OPtransformer(op):
     elif op=='DIV':
         op='/'
         return op
-def keepgoing():
+def keepgoing():        #判斷加法器與乘法器是否有空位，若無空位救回傳錯誤
     for i in range(adder+multiplier):
         if RS[i][1]!=None:
             return 1
     if Buffer1!=[] and Buffer2!=[]:
         return 1
     return 0
-def mappingREG(REG):
+def mappingREG(REG):        #每cycle整理REG內容
     if RAT[REG]!=None:
         return RAT[REG]
     else:
         return Register[REG]
-def mappingRAT(value):
+def mappingRAT(value):      #每cycle整理RAT內容
     for k,v in RAT.items():
         if v==value:
             return k
 def bufferDescription(rs,op,reg2,reg3):
     buffer=str(rs)+'='+str(reg2)+op+str(reg3)
     return buffer
-def buffercal(buffer):
-
+def buffercal(buffer):      #判斷運算符號是甚麼 然後將值做運算
+                            #buffer[1]:儲存運算符號  buffer[2]儲存第一個值  buffer[3]儲存第二個值
     if buffer[1]=='+':
         return buffer[2]+buffer[3]
     elif buffer[1]=='*':
@@ -66,9 +66,9 @@ def writeresult(REG,value):
                 RS[i][3]=value
         RAT[rs]=None
         Register[rs]=value
-def updateRAT(REG,rs):
+def updateRAT(REG,rs):      #重新整理RAT
     RAT[REG]=rs
-def updateRF(REG,rs):
+def updateRF(REG,rs):       #重新整理RF
     Register[REG]=rs
 def updateRS(rs,OP,REG1,REG2,time):
     for i in range (multiplier+adder):
@@ -77,7 +77,7 @@ def updateRS(rs,OP,REG1,REG2,time):
             RS[i][2]=REG1
             RS[i][3]=REG2
             RS[i][4]=time
-def printTable():
+def printTable():   #output
     print('-----Register-----')
     for k,v in  Register.items():
         print(k,v)
@@ -99,7 +99,7 @@ def printTable():
             elif i==4:
                 print('(MUL)Buffer=Empty')
 if __name__ == "__main__":
-    f = open('./input2.txt', 'r')
+    f = open('./input2.txt', 'r')       #讀取檔案
     lines = f.readlines()
     Register={'F1':1,'F2':1,'F3':2,'F4':None,'F5':None}
     RAT={'F1':None,'F2':None,'F3':None,'F4':None,'F5':None}
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     Buffer1=[]
     Buffer2=[]
 
-    addcycle=2 #set cycle
+    addcycle=2 #set cycle       #設定ADD MUL DIV的cycle數
     mulcycle=10
     divcycle=20
     adder=3
@@ -126,12 +126,12 @@ if __name__ == "__main__":
         str1=line.split(' ')[0]
         str2=line.strip(str1+' ')
         str3=str2.split(',')
-        str3[2]=str3[2].strip('\n') #split data ,str1=operator str3= REG,REG,REG
+        str3[2]=str3[2].strip('\n')  #split data ,str1=operator str3= REG,REG,REG
         op.append(str1)
         reg1.append(str3[0])
         reg2.append(str3[1])
         reg3.append(str3[2])
-    for i in range(len(lines)):  #create Instruction table
+    for i in range(len(lines)):   #create Instruction table
         issue[i][0]=op[i]
         issue[i][1]=reg1[i]
         issue[i][2]=reg2[i]
@@ -209,7 +209,7 @@ if __name__ == "__main__":
                 Buffer2.clear()
                 print('------------------------------Cycle %d------------------------------'%currentcycle)
                 printTable()
-        currentcycle=currentcycle+1
+        currentcycle=currentcycle+1     #當完成一個cycle cycle數就+1
 
 
 
