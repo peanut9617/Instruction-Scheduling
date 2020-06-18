@@ -31,27 +31,27 @@ step 1:Set parameter
 
     Register value:F1,F2,F3,F4,F5 可以給初始值
 
-step 2:
+step 2:讀取檔案
     
-    Read input file
+    Read input.txt
 
-step 3:
+step 3:建立每一個的table
 
     Create Table
 
-step 4:
+step 4:不斷更新RS和RAT
     
     updateRS() updateRAT()
 
     根據issue table進行issue的動作且印出所有table,如issue成功則將RS及RAT update,每回合只能執行一次
 
-step 5:
+step 5:判斷是否有在使用buffer
 
     判斷Buffer是否有在使用,如無使用可將RAT抓取下來並update Buffer
 
     但currentCycle必須>Issue time,如抓取進去一樣印出所有table
 
-step 6:
+step 6:判斷是否做Dispatch
 
     根據addcycle mulcycle divcycle判斷buffer計算是否結束
 
