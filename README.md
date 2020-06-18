@@ -27,21 +27,39 @@ Input:
     
 
 
-1.Set parameter:
-Register value:F1,F2,F3,F4,F5 可給初值
+step 1:Set parameter
 
-2.Read input file:
+Register value:F1,F2,F3,F4,F5 可以給初始值
 
-3.Create Table:
-Issue table: 根據input file create issue list
+step 2:Read input file
 
-4.updateRS() updateRAT()根據issue table進行issue的動作且印出所有table,如issue成功則將RS及RAT update,每回合只能執行一次
+step 3.Create Table
 
-5.判斷Buffer是否有在使用,如無使用可將RAT抓取下來並update Buffer,但currentCycle必須>Issue time,如抓取進去一樣印出所有table
+step 4:updateRS() updateRAT()
 
-6.根據addcycle mulcycle divcycle判斷buffer計算是否結束,如結束writeresult() 會將RAT,RS,Register值進行update
+根據issue table進行issue的動作且印出所有table,如issue成功則將RS及RAT update,每回合只能執行一次
 
-7.Loop step4~6,根據keepgoing及initialstate判斷是否繼續,initialstate初值為1,進行第一輪之後會設為0,keepgoint()則是判斷RAT,Buffer是否為空,如都為空則回傳0
+step 5:
+
+判斷Buffer是否有在使用,如無使用可將RAT抓取下來並update Buffer
+
+但currentCycle必須>Issue time,如抓取進去一樣印出所有table
+
+step 6:
+
+根據addcycle mulcycle divcycle判斷buffer計算是否結束
+
+如結束就writeresult() 
+
+並將RAT,RS,Register值進行update
+
+step 7:重複執行step4~6
+
+根據keepgoing及initialstate判斷是否繼續
+
+initialstate初值為1,進行第一輪之後會設為0
+
+keepgoint()則是判斷RAT,Buffer是否為空,如都為空則回傳0
 
 
 
